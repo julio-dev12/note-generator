@@ -88,6 +88,10 @@ function isEmpty(value) {
 // reusable function to clear error while typing
 function clearErrorWhileFilled(input, errorElement) {
   input.addEventListener("input", function() {
+    noteOutput.hidden = true;
+    generatedNote.textContent = "";
+    message.textContent = "";
+
     if (!isEmpty(input.value)) {
       errorElement.textContent = "";
     }
