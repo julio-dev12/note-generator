@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-sacale=1.0">
+  <title>Practice Note Generator</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main>
+    <h1>Practice Note Generator</h1>
+
+    <form id="noteForm">
+
+      <label for="deviceType">Device type</label>
+      <input type="text" id="deviceType">
+      <p id="deviceTypeError" class="field-error"></p>
+
+      <label for="issue">Issue</label>
+      <textarea id="issue"></textarea>
+      <p id="issueError" class="field-error"></p>
+
+      <label for="resolution">Resolution</label>
+      <textarea id="resolution"></textarea>
+      <p id="resolutionError" class="field-error"></p>
+
+      <label for="technician">Technician</label>
+      <input type="text" id="technician">
+      <p id="technicianError" class="field-error"></p>
+
+      <button type="submit">Generate Note</button>
+      <button id="clearFormButton" type="button">
+        Clear Form
+      </button>
+
+    </form>
+
+    <section id="noteOutput" hidden>
+      <h2>Generated Note</h2>
+      <p id="generatedNote"></p>
+      <button id="copyNoteButton" type="button">
+        Copy Note
+      </button>
+      <p id="copyMessage"></p>
+    </section>
+
+    <p id="message"></p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
