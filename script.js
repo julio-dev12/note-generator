@@ -6,6 +6,11 @@ const issue = document.getElementById("issue");
 const resolution = document.getElementById("resolution");
 const technician = document.getElementById("technician");
 
+const previewDeviceType = document.getElementById("previewDeviceType");
+const previewIssue = document.getElementById("previewIssue");
+const previewResolution = document.getElementById("previewResolution");
+const previewTechnician = document.getElementById("previewTechnician");
+
 const deviceTypeError = document.getElementById("deviceTypeError");
 const issueError = document.getElementById("issueError");
 const resolutionError = document.getElementById("resolutionError");
@@ -58,21 +63,24 @@ form.addEventListener("submit", function(event) {
   
   message.textContent = "Validation successful!";
 
-
-  generatedNote.textContent = `Device Type: ${deviceType.value.trim()}
-                                Issue: ${issue.value.trim()}
-                                Resolution: ${resolution.value.trim()}
-                                Technician: ${technician.value.trim()}`;
+  previewDeviceType.textContent = deviceType.value.trim();
+  previewIssue.textContent = issue.value.trim();
+  previewResolution.textContent = resolution.value.trim();
+  previewTechnician.textContent = technician.value.trim();
 
   noteOutput.hidden = false;
-
   message.textContent = "Note generated successfully!";
 });
 
 // copy button
 copyNoteButton.addEventListener("click", async function() {
   try {
-    await navigator.clipboard.writeText(generatedNote.textContent);
+    const noteText =
+    `Device Type: ${previewDeviceType.textContent}
+Issue: ${previewIssue.textContent}
+Resolution: ${previewResolution.textContent}
+Technician: ${previewTechnician.textContent}`;
+    await navigator.clipboard.writeText(noteText);
     copyMessage.textContent = "Note copied successfully!";
   } catch (error) {
       copyMessage.textContent = "Unable to copy. Please copy the note manually.";
@@ -89,8 +97,12 @@ function isEmpty(value) {
 function clearErrorWhileFilled(input, errorElement) {
   input.addEventListener("input", function() {
     noteOutput.hidden = true;
-    generatedNote.textContent = "";
+    previewDeviceType.textContent = "";
+    previewIssue.textContent = "";
+    previewResolution.textContent = "";
+    previewTechnician.textContent = "";
     message.textContent = "";
+    copyMessage.textContent = "";
 
     if (!isEmpty(input.value)) {
       errorElement.textContent = "";
@@ -114,7 +126,10 @@ clearFormButton.addEventListener("click", function() {
   technicianError.textContent = "";
 
   message.textContent = "";
-  generatedNote.textContent = "";
+  previewDeviceType.textContent = "";
+  previewIssue.textContent = "";
+  previewResolution.textContent = "";
+  previewTechnician.textContent = "";
   noteOutput.hidden = true;
   copyMessage.textContent = "";
 });

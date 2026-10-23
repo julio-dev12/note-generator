@@ -38,11 +38,31 @@
     </form>
 
     <section id="noteOutput" hidden>
-      <h2>Generated Note</h2>
-      <p id="generatedNote"></p>
-      <button id="copyNoteButton" type="button">
-        Copy Note
-      </button>
+      <h2>Generated Note Preview</h2>
+
+      <div class="note-preview">
+          <div class="note-row">
+              <h3>Device Type</h3>
+              <p id="previewDeviceType"></p>
+          </div>
+
+          <div class="note-row">
+              <h3>Issue</h3>
+              <p id="previewIssue"></p>
+          </div>
+
+          <div class="note-row">
+              <h3>Resolution</h3>
+              <p id="previewResolution"></p>
+          </div>
+
+          <div class="note-row">
+              <h3>Technician</h3>
+              <p id="previewTechnician"></p>
+          </div>
+      </div>
+
+      <button id="copyNoteButton" type="button">Copy Note</button>
       <p id="copyMessage"></p>
     </section>
 
