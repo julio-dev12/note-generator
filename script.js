@@ -26,6 +26,18 @@ const clearFormButton = document.getElementById("clearFormButton");
 
 const message = document.getElementById("message");
 
+// function to check if a value is empty
+function isEmpty(value) {
+    if (typeof value !== "string") {
+      throw new TypeError("isEmpty() requires a string.");
+    }
+
+    return value.trim() === "";
+}
+
+// test js
+window.isEmpty = isEmpty;
+
 // event listener for form submission
 form.addEventListener("submit", function(event) {
   event.preventDefault();
@@ -87,11 +99,6 @@ Technician: ${previewTechnician.textContent}`;
       console.error("Clipboard copy failed:", error);
   }
 });
-
-// function to check if a value is empty
-function isEmpty(value) {
-  return value.trim() === "";
-}
 
 // reusable function to clear error while typing
 function clearErrorWhileFilled(input, errorElement) {
