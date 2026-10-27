@@ -1,12 +1,20 @@
 function testIsEmpty() {
-    console.assert(isEmpty("") === true, "Test failed: emty string");
-    console.assert(isEmpty("   ") === true, "Test failed: spaces only");
-    console.assert(
-        isEmpty("Practice Device A") === false,
-        "Test failed: non-empty value"
-    );
+    let allPassed = true;
+    if (isEmpty("") !== true) {
+        allPassed = false;
+    }
+    if (isEmpty("   ") !== true) {
+        allPassed = false;
+    }
+    if (isEmpty("Practice Device A") !== false) {
+        allPassed = false;
+    }
 
-    console.log("isEmpty tests completed.");
+    if (allPassed === true) {
+        console.log("PASS: All isEmpty checks passed.");
+    } else {
+        console.log("FAIL: One or more isEmpty checks failed.");
+    }
 }
 
 function testIsEmptyRejectsNull() {
@@ -52,3 +60,14 @@ function testIsEmptyRejectsNumber() {
 
     console.log("Number input test completed.");
 }
+
+function runAllTests() {
+    console.log("Starting all tests...");
+
+    testIsEmpty();
+    testIsEmptyRejectsNull();
+    testIsEmptyRejectsNumber();
+
+    console.log("All tests finished.");
+}
+
